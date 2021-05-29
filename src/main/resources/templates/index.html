@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/lightbox.min.css">
+        <script src="js/lightbox-plus-jquery.min.js"></script>
+        <title>Gallery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body style="background-color:powderblue;">
+
+        <div class="grid">
+            <tr th:each="image : ${images}">
+                <div class="gallery">
+                    <a th:href="@{'data:image/png;base64,'+${image.image}}" data-lightbox="mygallery" th:data-title="${image.displayName}"> <img th:src="@{'data:image/png;base64,'+${image.miniature}}"/>
+                    </a>
+                        <span th:text="${image.displayName}"></span>
+                    <form method="post" th:action="@{/delete(fileNumber=${image.fileNumber})}">
+                        <input class ="deletebtn" type="image" src="images/close2.png" name="submit" width="20" height="20" alt="submit"/>
+                    </form>
+                </div>
+            </tr>
+        </div>
+
+
+
+        <div class="container" style="clear:both">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+                    <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="file" name="file" class="browsebtn" accept="image/png">
+                            <input type="text" name="imageName" class="btn">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload image</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+</html>

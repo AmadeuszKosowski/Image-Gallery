@@ -1,0 +1,59 @@
+.gallery {
+   position: relative;
+   vertical-align: top;
+   display: inline-block;
+   text-align: center;
+   width: 120px;
+}
+
+
+}
+.gallery img {
+    transition: 1s;
+    padding: 15px;
+    width: 200px;
+    color: black;
+}
+.gallery img:hover {
+    filter: greyscale(100%);
+    transform: scale(1.1);
+}
+
+.gallery .deletebtn{
+ position: absolute;
+  bottom: 15%;
+  left: 16%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.btn {
+    border: 2px solid gray;
+    border-color: black;
+    color: black;
+    background-color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    font-color: black
+}
+
+.btn:hover{
+    background-color: #E8E8E8;
+}
+
+.browsebtn {
+    border: 2px solid gray;
+    border-color: black;
+    color: black;
+    background-color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: bold;
+    font-color: black
+}
+
+
+
